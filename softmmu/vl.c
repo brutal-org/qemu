@@ -3415,6 +3415,10 @@ void qemu_init(int argc, char **argv, char **envp)
             case QEMU_OPTION_vnc:
                 vnc_parse(optarg);
                 break;
+            case QEMU_OPTION_int_dump:
+                dump_interrupt_error = true;
+                break;
+
             case QEMU_OPTION_no_acpi:
                 qdict_put_str(machine_opts_dict, "acpi", "off");
                 break;

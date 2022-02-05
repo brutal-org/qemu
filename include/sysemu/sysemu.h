@@ -48,6 +48,7 @@ extern bool boot_strict;
 extern uint8_t *boot_splash_filedata;
 extern bool enable_mlock;
 extern bool enable_cpu_pm;
+extern bool dump_interrupt_error;
 extern QEMUClockType rtc_clock;
 
 #define MAX_OPTION_ROMS 16

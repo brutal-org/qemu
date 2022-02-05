@@ -4193,6 +4193,13 @@ SRST
     Exit instead of rebooting.
 ERST
 
+DEF("int-dump", 0, QEMU_OPTION_int_dump, \
+    "-int-dump       dump when an error interruption occurs \n", QEMU_ARCH_I386)
+SRST
+``-int-dump``
+    Dump register when an error interruption occurs.
+ERST
+
 DEF("no-shutdown", 0, QEMU_OPTION_no_shutdown, \
     "-no-shutdown    stop before shutdown\n", QEMU_ARCH_ALL)
 SRST

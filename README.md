@@ -25,3 +25,6 @@ This fork add:
 
 - dump-stackframe {x}:
    - allows to dump the stackframe at an address or using the RBP register (only for x86-64)
+
+- -int-dump: 
+   - dumps only error interrupts, only work when kvm is disabled

@@ -555,6 +555,7 @@ int exception_has_error_code(int intno)
 #define POPW(ssp, sp, sp_mask, val) POPW_RA(ssp, sp, sp_mask, val, 0)
 #define POPL(ssp, sp, sp_mask, val) POPL_RA(ssp, sp, sp_mask, val, 0)
 
+#include "sysemu/sysemu.h"
 /* protected mode interrupt */
 static void do_interrupt_protected(CPUX86State *env, int intno, int is_int,
                                    int error_code, unsigned int next_eip,
@@ -1032,7 +1033,11 @@ void do_interrupt_all(X86CPU *cpu, int intno, int is_int,
                       int error_code, target_ulong next_eip, int is_hw)
 {
     CPUX86State *env = &cpu->env;
-
+    if(intno < 32 && dump_interrupt_error)
+    {
+        qemu_log("received interruption(%i) with error %x %s %i \n", intno, error_code, __FILE__, __LINE__);
+        x86_cpu_dump_state(CPU(cpu),stdout, 0);
+    }
     if (qemu_loglevel_mask(CPU_LOG_INT)) {
         if ((env->cr[0] & CR0_PE_MASK)) {
             static int count;

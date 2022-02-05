@@ -38,6 +38,7 @@ int display_opengl;
 const char* keyboard_layout;
 bool enable_mlock;
 bool enable_cpu_pm;
+bool dump_interrupt_error = false;
 int nb_nics;
 NICInfo nd_table[MAX_NICS];
 int autostart = 1;
