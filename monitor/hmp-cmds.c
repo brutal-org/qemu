@@ -2178,3 +2178,8 @@ void hmp_info_memory_size_summary(Monitor *mon, const QDict *qdict)
     }
     hmp_handle_error(mon, err);
 }
+
+__attribute__((weak)) void hmp_dump_stackframe(Monitor *mon, const QDict *qdict)
+{
+    monitor_printf(mon, "dump-stackframe is not supported for this architecture!");
+}
